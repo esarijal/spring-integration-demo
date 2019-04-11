@@ -1,0 +1,19 @@
+kafka:
+  topic-name: test-topic
+
+upload:
+  url: http://172.30.129.33:8000/upload
+  file-name: /tmp/test-data.csv
+
+spring:
+  kafka:
+    consumer:
+      bootstrap-servers: 172.30.129.33:9092,172.30.129.33:9093
+      group-id: groupid
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      bootstrap-servers: 172.30.129.33:9092,172.30.129.33:9093
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
